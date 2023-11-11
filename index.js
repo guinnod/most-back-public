@@ -6,8 +6,8 @@ const port = 5000;
 
 app.use(bodyParser());
 
-app.post("/", (req, res) => {
-    saveAnswers(req.body);
+app.post("/", async (req, res) => {
+    await saveAnswers(req.body);
     res.status(200).send({ answer: "Typeform was submitted" });
 });
 
