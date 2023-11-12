@@ -37,7 +37,7 @@ const parseFormAnswer = (rawAnswer) => {
         clearedAnswer
     );
     formattedAnswer.main_job = findField(
-        "Что делает ваша компания? (50 символов или меньше)",
+        "Что делает ваша компания? (250 символов или меньше)",
         clearedAnswer
     );
     formattedAnswer.pitchdeck = findField("Pitchdeck", clearedAnswer);
@@ -79,7 +79,7 @@ const parseFormAnswer = (rawAnswer) => {
 };
 
 const findField = (label, clearedAnswer) => {
-    return clearedAnswer.find((e) => e.label === label);
+    return clearedAnswer.find((e) => e.label === label) || "";
 };
 
 const clearAnswer = (rawAnswer) => {
