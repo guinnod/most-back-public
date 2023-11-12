@@ -14,6 +14,20 @@ const saveAnswers = async (answers) => {
     }
 };
 
+const getAnswers = async () => {
+    try {
+        const answersRef = await unhandledAnswersRef.get();
+        const results = [];
+        answersRef.forEach((doc) => {
+            results.push(doc.data());
+        });
+        return results;
+    } catch (error) {
+        console.error("Error during getting answers:", error);
+    }
+};
+
 module.exports = {
     saveAnswers,
+    getAnswers,
 };
