@@ -37,7 +37,7 @@ app.post("/", async (req, res) => {
         }
     } catch (error) {
         console.log(error.response.data);
-        updateAnswer(id, { score: Math.random() * 100 });
+        updateAnswer(id, { score: Math.random() * 10 });
     }
 });
 
