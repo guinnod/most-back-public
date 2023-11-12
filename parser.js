@@ -6,20 +6,20 @@ const parseFormAnswer = (rawAnswer) => {
             field.type === "INPUT_NUMBER" ||
             field.type === "TEXTAREA"
         ) {
+            clearedAnswer.push({
+                label: field.label,
+                value: field.value,
+            });
+        } else if (
+            field.type === "MULTIPLE_CHOICE" ||
+            field.type === "DROPDOWN"
+        ) {
             const value = field.options.find(
                 (e) => e.id === field.value[0]
             ).text;
             clearedAnswer.push({
                 label: field.label,
                 value: value,
-            });
-        } else if (
-            field.type === "MULTIPLE_CHOICE" ||
-            field.type === "DROPDOWN"
-        ) {
-            clearedAnswer.push({
-                label: field.label,
-                value: field.value,
             });
         } else if (field.type === "FILE_UPLOAD") {
             clearedAnswer.push({
