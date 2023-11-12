@@ -117,4 +117,5 @@ const clearAnswer = (rawAnswer) => {
 
 module.exports = {
     parseFormAnswer,
+    clearAnswer,
 };

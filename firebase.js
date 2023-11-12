@@ -27,7 +27,17 @@ const getAnswers = async () => {
     }
 };
 
+const updateAnswer = async (answerId, data) => {
+    try {
+        const orderRef = unhandledAnswersRef.doc(answerId);
+        await orderRef.update({ score: data.score || 0 });
+    } catch (error) {
+        console.error("Error during updating answers:", error);
+    }
+};
+
 module.exports = {
     saveAnswers,
     getAnswers,
+    updateAnswer,
 };
