@@ -8,6 +8,7 @@ const port = 5000;
 app.use(bodyParser());
 
 app.post("/", async (req, res) => {
+    console.log(req.body);
     if (req?.body?.eventType === "FORM_RESPONSE") {
         const formattedAnswer = parseFormAnswer(req.body.data.fields);
         await saveAnswers(formattedAnswer);
