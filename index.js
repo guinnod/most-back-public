@@ -4,8 +4,10 @@ const { saveAnswers, getAnswers } = require("./firebase");
 const { parseFormAnswer } = require("./parser");
 const app = express();
 const port = 5000;
+const cors = require("cors");
 
 app.use(bodyParser());
+app.use(cors());
 
 app.post("/", async (req, res) => {
     console.log(req.body);
